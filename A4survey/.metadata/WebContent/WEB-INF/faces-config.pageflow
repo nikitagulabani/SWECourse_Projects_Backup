@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14602472687150" configfile="/A4survey/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="survey.xhtml" id="pf14602472808641" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14602472808642 pf14602472808643" path="/survey.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="WinnerAcknowledgement.xhtml" id="pf14602472808644" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14602472808642" path="/WinnerAcknowledgement.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="SimpleAcknowledgement.xhtml" id="pf14602472808645" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf14602472808643" path="/SimpleAcknowledgement.xhtml"/>
+  <links id="pf14602472808642" target="pf14602472808644" source="pf14602472808641" outcome="Winner"/>
+  <links id="pf14602472808643" target="pf14602472808645" source="pf14602472808641" outcome="Simple"/>
+</pageflow:Pageflow>

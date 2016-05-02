@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE tiles-definitions PUBLIC
+ "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+ "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+   
+     <definition name="winner" template="/layoutmanager.jsp">   
+   <put-attribute name="title" value="Winner Ack Page"/>   
+   <put-attribute name="body" value="/winnerack.jsp"/>   
+   </definition>  
+   
+   <definition name="simple" template="/layoutmanager.jsp">   
+   <put-attribute name="title" value="Simple Ack Page"/>   
+   <put-attribute name="body" value="/simpleack.jsp"/>   
+   </definition> 
+   
+   <definition name="student" template="/layoutmanager.jsp">   
+   <put-attribute name="title" value="Student Page"/>   
+   <put-attribute name="body" value="/student.jsp"/>   
+   </definition> 
+   
+   <definition name="failure" template="/layoutmanager.jsp">   
+   <put-attribute name="title" value="No Student Page"/>   
+   <put-attribute name="body" value="/nostudent.jsp"/>   
+   </definition> 
+   
+</tiles-definitions>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+	<title>Student Survey Form</title>
+	<style>
+	.error {
+	font-weight: bold;
+	color: red;
+}
+
+body {
+	background-color: lightblue;
+}
+	</style>
+
+</h:head>
+<h:body>
+	<div align="center">
+		<h1>Student Survey Form</h1>
+
+		<h:form>
+
+			<h:panelGrid columns="3">
+
+Student First: <h:inputText id="sfirst"
+					value="#{studentManaged.student.sfirst}" required="true"
+					requiredMessage="You must enter Student First Name"
+					validatorMessage="First Name must be 1 or 15 chars and Only Alphabets">
+					<f:validateLength minimum="1" maximum="15"></f:validateLength>
+					<f:validateRegex pattern="[A-Za-z]+" />
+				</h:inputText>
+				<h:message for="sfirst" styleClass="error" />
+
+				<br />
+
+Student Last: <h:inputText id="slast"
+					value="#{studentManaged.student.slast}" required="true"
+					requiredMessage="You must enter Student Last Name"
+					validatorMessage="Last Name must be 1 or 15 chars and Only Alphabets ">
+					<f:validateLength minimum="1" maximum="15"></f:validateLength>
+					<f:validateRegex pattern="[A-Za-z]+" />
+				</h:inputText>
+				<h:message for="slast" styleClass="error" />
+
+				<br />
+Street Address: <h:inputText id="saddress"
+					value="#{studentManaged.student.saddress}" required="true"
+					requiredMessage="You must enter Address"
+					validatorMessage="Street Address not more than 30 chars">
+					<f:validateLength minimum="1" maximum="30"></f:validateLength>
+
+				</h:inputText>
+				<h:message for="saddress" styleClass="error" />
+
+				<br />
+Zipcode: <h:inputText id="zipcode"
+					value="#{studentManaged.student.zipcode}" required="true"
+					requiredMessage="You must enter Zipcode"
+					validatorMessage="Zipcode must be 5 numbers">
+					<f:validateLength minimum="5" maximum="5"></f:validateLength>
+					<f:validateRegex pattern="[0-9]+" />
+				</h:inputText>
+				<h:message for="zipcode" styleClass="error" />
+
+				<br />
+City: <h:inputText id="city" value="#{studentManaged.student.city}"
+					required="true" requiredMessage="You must enter City" />
+				<h:message for="city" styleClass="error" />
+				<br />
+State: <h:inputText id="state" value="#{studentManaged.student.state}"
+					required="true" requiredMessage="You must enter State" />
+				<h:message for="state" styleClass="error" />
+				<br />
+Telephone number: <h:inputText id="telephone"
+					value="#{studentManaged.student.telephone}" required="true"
+					requiredMessage="You must enter Telephone"
+					validatorMessage="Enter in following format (xxx)-xxx-xxxx">
+					<f:validateRegex pattern="^\(\d{3}\)-\d{3}-\d{4}"></f:validateRegex>
+				</h:inputText>
+				<h:message for="telephone" styleClass="error" />
+				<br />
+Email: <h:inputText id="email" value="#{studentManaged.student.email}"
+					required="true" requiredMessage="You must enter Email"
+					validatorMessage="Enter valid email">
+					<f:validateRegex
+						pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+				</h:inputText>
+				<h:message for="email" styleClass="error" />
+				<br />
+URL: <h:inputText id="url" value="#{studentManaged.student.url}"
+					required="true" requiredMessage="You must enter URL">
+				</h:inputText>
+				<h:message for="url" styleClass="error" />
+				<br />
+Date of Survey: <h:inputText id="sdate"
+					value="#{studentManaged.student.sdate}" required="true"
+					requiredMessage="You must enter Survey Date"
+					validatorMessage="Enter in the following format mm/dd/yyyy">
+					<f:validateRegex pattern="^(\d{1,2})(\/|-)(\d{1,2})(\/|-)(\d{4})$"></f:validateRegex>
+				</h:inputText>
+				<h:message for="sdate" styleClass="error" />
+				<br />
+What did you like the most on campus:<h:selectManyCheckbox id="checks"
+					value="#{studentManaged.student.checks}">
+					<f:selectItem itemValue="Students" itemLabel="Students" />
+					<f:selectItem itemValue="Location" itemLabel="Location" />
+					<f:selectItem itemValue="Campus" itemLabel="Campus" />
+					<f:selectItem itemValue="Atmosphere" itemLabel="Atmosphere" />
+					<f:selectItem itemValue="DormRooms" itemLabel="Dorm Roooms" />
+					<f:selectItem itemValue="Sports" itemLabel="Sports" />
+				</h:selectManyCheckbox>
+				<h:message for="checks" styleClass="error" />
+				<br />
+How did you become interested in the university:<h:selectOneRadio
+					id="radios" value="#{studentManaged.student.radios}">
+					<f:selectItem itemValue="Friends" itemLabel="Friends" />
+					<f:selectItem itemValue="Television" itemLabel="Television" />
+					<f:selectItem itemValue="Internet" itemLabel="Internet" />
+					<f:selectItem itemValue="Others" itemLabel="Others" />
+				</h:selectOneRadio>
+				<h:message for="radios" styleClass="error" />
+				<br />
+Chances of you recommending this school:<h:selectOneMenu id="chance"
+					value="#{studentManaged.student.chance}">
+					<f:selectItem itemValue="VeryLikely" itemLabel="VeryLikely" />
+					<f:selectItem itemValue="Likely" itemLabel="Likely" />
+					<f:selectItem itemValue="UnLikely" itemLabel="UnLikely" />
+				</h:selectOneMenu>
+				<h:message for="chance" styleClass="error" />
+				<br />
+Raffle Field: <h:inputText id="raffle"
+					value="#{studentManaged.student.raffle}"
+					a:placeholder="Enter 10 comma seperated nnumbers" />
+				<h:message for="raffle" styleClass="error" />
+				<br />
+Comments: <h:inputTextarea id="comments"
+					value="#{studentManaged.student.comments}"></h:inputTextarea>
+				<h:message for="raffle" styleClass="error" />
+				<br />
+			</h:panelGrid>
+			<h:commandButton value="Submit" action="#{studentManaged.showresult}" />
+			<h:commandButton value="Cancel" type="reset" />
+		</h:form>
+	</div>
+	<p align="center">All information on this site is &copy; Nikita
+		Sanjay Gulabani &amp; Associates, Inc. 2016.</p>
+</h:body>
+</html>

@@ -1,0 +1,130 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<!-- This is the List Survey page, which outputs all the surveys taken -->
+<h:head>
+	
+	<title>List of Survey</title>
+		<style>
+	.error {
+	font-weight: bold;
+	color: red;
+}
+
+body {
+	background-color: lightblue;
+}
+	</style>
+</h:head>
+<h:body>
+	<h1>The following is the List of Surveys</h1>
+	<h:dataTable value="#{studentManaged.getresult()}" var="list"
+		border="1">
+		<h:column>
+			<f:facet name="header">
+		First Name
+		</f:facet>
+		#{list.sfirst}
+	</h:column>
+
+		<h:column>
+			<f:facet name="header">
+		Last Name
+		</f:facet>
+		#{list.slast}
+	</h:column>
+		<h:column>
+			<f:facet name="header">
+		Address
+		</f:facet>
+		#{list.saddress}
+	</h:column>
+
+		<h:column>
+			<f:facet name="header">
+		Zipcode
+		</f:facet>
+		#{list.zipcode}
+	</h:column>
+		<h:column>
+			<f:facet name="header">
+		City
+		</f:facet>
+		#{list.city}
+	</h:column>
+
+		<h:column>
+			<f:facet name="header">
+		State
+		</f:facet>
+		#{list.state}
+	</h:column>
+		<h:column>
+			<f:facet name="header">
+		Telephone
+		</f:facet>
+		#{list.telephone}
+	</h:column>
+
+		<h:column>
+			<f:facet name="header">
+		Email
+		</f:facet>
+		#{list.email}
+	</h:column>
+		<h:column>
+			<f:facet name="header">
+		URL
+		</f:facet>
+		#{list.url}
+	</h:column>
+
+		<h:column>
+			<f:facet name="header">
+		Date
+		</f:facet>
+		#{list.sdate}
+	</h:column>
+		<h:column>
+			<f:facet name="header">
+		Interest
+		</f:facet>
+		#{list.radios}
+	</h:column>
+
+		<h:column>
+			<f:facet name="header">
+		Chance of Recommending
+		</f:facet>
+		#{list.chance}
+	</h:column>
+	
+
+		<h:column>
+			<f:facet name="header">
+		Comments
+		</f:facet>
+		#{list.comments}
+	</h:column>
+
+	</h:dataTable>
+	<h3>
+		<a href="survey.xhtml">Take Survey</a>
+	</h3>
+	<h3>
+		<a href="listsurvey.xhtml">View List of Surveys</a>
+	</h3>
+	<h3>
+		<a href="searchsurvey.xhtml">Search Survey</a>
+	</h3>
+
+
+
+	<p align="center">All information on this site is &copy; Nikita
+		Sanjay Gulabani &amp; Associates, Inc. 2016.</p>
+
+</h:body>
+</html>

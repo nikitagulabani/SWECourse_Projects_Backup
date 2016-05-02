@@ -1,0 +1,156 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<!-- This is the search survey page, which makes call to the database to search a record and displays the search result. It also deletes the surveys -->
+<h:head>
+	<title>Search Survey Form</title>
+	<style>
+
+body {
+	background-color: lightblue;
+}
+	</style>
+
+</h:head>
+<h:body>
+<h3>Search Survey</h3>
+<h:form>
+<h:panelGrid columns="2">
+
+Student First: <p:inputText id="sfirst"
+					value="#{studentManaged.student.sfirst}">
+				</p:inputText>
+
+Student Last: <p:inputText id="slast"
+					value="#{studentManaged.student.slast}">
+				</p:inputText>
+				
+City: <p:inputText id="city" value="#{studentManaged.student.city}"/>
+				
+				
+State: <p:inputText id="state" value="#{studentManaged.student.state}" />
+				
+				
+<h:commandButton id="search" value="Search" action="#{studentManaged.getSearchResult}" ajax="false"></h:commandButton>
+
+<h:commandButton value="Cancel" type="reset" />
+</h:panelGrid>		
+	
+<h:dataTable id="sresult" var="list" value="#{sessionScope.result}" border="1">
+		<h:column>
+			<f:facet name="header">
+		First Name
+		</f:facet>
+		#{list.sfirst}
+	</h:column>
+
+		<h:column>
+			<f:facet name="header">
+		Last Name
+		</f:facet>
+		#{list.slast}
+	</h:column>
+		<h:column>
+			<f:facet name="header">
+		Address
+		</f:facet>
+		#{list.saddress}
+	</h:column>
+
+		<h:column>
+			<f:facet name="header">
+		Zipcode
+		</f:facet>
+		#{list.zipcode}
+	</h:column>
+		<h:column>
+			<f:facet name="header">
+		City
+		</f:facet>
+		#{list.city}
+	</h:column>
+
+		<h:column>
+			<f:facet name="header">
+		State
+		</f:facet>
+		#{list.state}
+	</h:column>
+		<h:column>
+			<f:facet name="header">
+		Telephone
+		</f:facet>
+		#{list.telephone}
+	</h:column>
+
+		<h:column>
+			<f:facet name="header">
+		Email
+		</f:facet>
+		#{list.email}
+	</h:column>
+		<h:column>
+			<f:facet name="header">
+		URL
+		</f:facet>
+		#{list.url}
+	</h:column>
+
+		<h:column>
+			<f:facet name="header">
+		Date
+		</f:facet>
+		#{list.sdate}
+	</h:column>
+		<h:column>
+			<f:facet name="header">
+		Interest
+		</f:facet>
+		#{list.radios}
+	</h:column>
+
+		<h:column>
+			<f:facet name="header">
+		Chance of Recommending
+		</f:facet>
+		#{list.chance}
+	</h:column>
+
+		<h:column>
+			<f:facet name="header">
+		Comments
+		</f:facet>
+		#{list.comments}
+	</h:column>
+	
+	<h:column>
+	<f:facet name="header">
+		Delete
+		</f:facet>
+		<p:commandButton value="delete" action="#{studentManaged.deleterec(list)}" update="sresult"></p:commandButton>
+	</h:column>
+	
+
+	</h:dataTable>	
+	
+	</h:form>		
+<h3>
+		<a href="survey.xhtml">Take Survey</a>
+	</h3>
+	
+	<h3>
+		<a href="listsurvey.xhtml">View List of Surveys</a>
+	</h3>
+	<h3>
+		<a href="searchsurvey.xhtml">Search Survey</a>
+	</h3>
+	<p align="center">All information on this site is &copy; Nikita
+		Sanjay Gulabani &amp; Associates, Inc. 2016.</p>
+
+</h:body>
+</html>
